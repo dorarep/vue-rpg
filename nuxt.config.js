@@ -29,9 +29,9 @@ module.exports = {
     */
     extend (config, { isDev, isClient }) {
       config.module.rules.push({
-        test: /\.mp3$/,
-        include: /(assets\/svg)/,
-        loader: 'file-loader',
+        test: /\.(ogg|mp3|wav|mpe?g)$/i,
+        use: 'file-loader',
+        exclude: /(node_modules)/
       });
       if (isDev && isClient) {
         config.module.rules.push({
@@ -44,4 +44,3 @@ module.exports = {
     }
   }
 }
-
